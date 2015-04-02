@@ -9,7 +9,7 @@ class MainController extends Controller
     public function indexAction()
     {
         return $this->render('BackendBundle:Main:index.html.twig');
-        //test fiuerfpehiruz
+        //new
 
     }
 }
