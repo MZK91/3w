@@ -1,0 +1,13 @@
+store_backend_product_list:
+    path:     /product
+    defaults: { _controller: StoreBackendBundle:Product:list }
+
+# Page static Contact
+store_backend_product_view:
+    path:     /view/{name}/{id}
+    defaults: { _controller: StoreBackendBundle:Product:view }
+    # NomduBundle:NomducControleur:Nom de L'action
+    requirements:
+        id: \d+
+        name: "[a-z]{5,30}"
+        _method: GET

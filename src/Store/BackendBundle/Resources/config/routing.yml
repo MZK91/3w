@@ -1,3 +1,15 @@
-backend_homepage:
-    path:     /test
-    defaults: { _controller: BackendBundle:Main:index }
+store_backend_index:
+    path:     /dashboard
+    defaults: { _controller: StoreBackendBundle:Main:index }
+
+store_backend_statics:
+    resource: "@StoreBackendBundle/Resources/config/statics.yml"
+    prefix:   /
+
+store_backend_products:
+    resource: "@StoreBackendBundle/Resources/config/modules/product.yml"
+    prefix:   /products
+
+store_backend_categories:
+    resource: "@StoreBackendBundle/Resources/config/modules/category.yml"
+    prefix:   /categories

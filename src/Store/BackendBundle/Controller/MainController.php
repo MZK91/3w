@@ -8,8 +8,6 @@ class MainController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BackendBundle:Main:index.html.twig');
-        //new
-
+        return $this->render('StoreBackendBundle:Main:index.html.twig');
     }
 }

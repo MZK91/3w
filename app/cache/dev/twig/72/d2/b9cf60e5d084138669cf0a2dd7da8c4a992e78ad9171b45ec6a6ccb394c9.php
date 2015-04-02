@@ -1,6 +1,6 @@
 <?php
 
-/* WebProfilerBundle:Profiler:toolbar_js.html.twig */
+/* @WebProfiler/Profiler/toolbar_js.html.twig */
 class __TwigTemplate_72d2b9cf60e5d084138669cf0a2dd7da8c4a992e78ad9171b45ec6a6ccb394c9 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -127,7 +127,7 @@ class __TwigTemplate_72d2b9cf60e5d084138669cf0a2dd7da8c4a992e78ad9171b45ec6a6ccb
 
     public function getTemplateName()
     {
-        return "WebProfilerBundle:Profiler:toolbar_js.html.twig";
+        return "@WebProfiler/Profiler/toolbar_js.html.twig";
     }
 
     public function isTraitable()

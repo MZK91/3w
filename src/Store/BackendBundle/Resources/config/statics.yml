@@ -1,0 +1,16 @@
+# Page static Contact
+store_backend_statics_contact:
+    path:     /contact
+    defaults: { _controller: StoreBackendBundle:Statics:contact }
+
+store_backend_statics_about:
+    path:     /about
+    defaults: { _controller: StoreBackendBundle:Statics:about }
+
+store_backend_statics_terms:
+    path:     /terms
+    defaults: { _controller: StoreBackendBundle:Statics:terms }
+
+store_backend_statics_concept:
+    path:     /concept
+    defaults: { _controller: StoreBackendBundle:Statics:concept }

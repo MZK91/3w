@@ -127,9 +127,61 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // backend_homepage
-        if ($pathinfo === '/test') {
-            return array (  '_controller' => 'Store\\BackendBundle\\Controller\\MainController::indexAction',  '_route' => 'backend_homepage',);
+        // store_backend_index
+        if ($pathinfo === '/dashboard') {
+            return array (  '_controller' => 'Store\\BackendBundle\\Controller\\MainController::indexAction',  '_route' => 'store_backend_index',);
+        }
+
+        // store_backend_statics_contact
+        if ($pathinfo === '/contact') {
+            return array (  '_controller' => 'Store\\BackendBundle\\Controller\\StaticsController::contactAction',  '_route' => 'store_backend_statics_contact',);
+        }
+
+        // store_backend_statics_about
+        if ($pathinfo === '/about') {
+            return array (  '_controller' => 'Store\\BackendBundle\\Controller\\StaticsController::aboutAction',  '_route' => 'store_backend_statics_about',);
+        }
+
+        // store_backend_statics_terms
+        if ($pathinfo === '/terms') {
+            return array (  '_controller' => 'Store\\BackendBundle\\Controller\\StaticsController::termsAction',  '_route' => 'store_backend_statics_terms',);
+        }
+
+        // store_backend_statics_concept
+        if ($pathinfo === '/concept') {
+            return array (  '_controller' => 'Store\\BackendBundle\\Controller\\StaticsController::conceptAction',  '_route' => 'store_backend_statics_concept',);
+        }
+
+        if (0 === strpos($pathinfo, '/products')) {
+            // store_backend_product_list
+            if ($pathinfo === '/products/product') {
+                return array (  '_controller' => 'Store\\BackendBundle\\Controller\\ProductController::listAction',  '_route' => 'store_backend_product_list',);
+            }
+
+            // store_backend_product_view
+            if (0 === strpos($pathinfo, '/products/view') && preg_match('#^/products/view/(?P<name>[a-z]{5,30})/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_store_backend_product_view;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'store_backend_product_view')), array (  '_controller' => 'Store\\BackendBundle\\Controller\\ProductController::viewAction',));
+            }
+            not_store_backend_product_view:
+
+        }
+
+        if (0 === strpos($pathinfo, '/categories')) {
+            // store_backend_category_list
+            if ($pathinfo === '/categories/list') {
+                return array (  '_controller' => 'Store\\BackendBundle\\Controller\\CategoryController::listAction',  '_route' => 'store_backend_category_list',);
+            }
+
+            // store_backend_category_view
+            if (0 === strpos($pathinfo, '/categories/view') && preg_match('#^/categories/view/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'store_backend_category_view')), array (  '_controller' => 'Store\\BackendBundle\\Controller\\CategoryController::viewAction',));
+            }
+
         }
 
         // homepage

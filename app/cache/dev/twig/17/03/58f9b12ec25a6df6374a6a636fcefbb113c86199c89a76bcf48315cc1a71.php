@@ -1,6 +1,6 @@
 <?php
 
-/* WebProfilerBundle:Profiler:header.html.twig */
+/* @WebProfiler/Profiler/header.html.twig */
 class __TwigTemplate_170358f9b12ec25a6df6374a6a636fcefbb113c86199c89a76bcf48315cc1a71 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -46,7 +46,7 @@ class __TwigTemplate_170358f9b12ec25a6df6374a6a636fcefbb113c86199c89a76bcf48315c
 
     public function getTemplateName()
     {
-        return "WebProfilerBundle:Profiler:header.html.twig";
+        return "@WebProfiler/Profiler/header.html.twig";
     }
 
     public function getDebugInfo()

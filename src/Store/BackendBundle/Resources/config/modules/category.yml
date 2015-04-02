@@ -1,0 +1,13 @@
+# Page static Contact
+store_backend_category_list:
+    path:     /list
+    defaults: { _controller: StoreBackendBundle:Category:list }
+    # NomduBundle:NomducControleur:Nom de L'action
+
+# Page static Contact
+store_backend_category_view:
+    path:     /view/{id}
+    defaults: { _controller: StoreBackendBundle:Category:view }
+    requirements:
+       id: \d+
+       _method: GET

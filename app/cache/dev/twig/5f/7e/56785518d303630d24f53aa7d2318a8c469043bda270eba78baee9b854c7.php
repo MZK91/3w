@@ -1,6 +1,6 @@
 <?php
 
-/* WebProfilerBundle:Profiler:search.html.twig */
+/* @WebProfiler/Profiler/search.html.twig */
 class __TwigTemplate_5f7e56785518d303630d24f53aa7d2318a8c469043bda270eba78baee9b854c7 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -118,7 +118,7 @@ class __TwigTemplate_5f7e56785518d303630d24f53aa7d2318a8c469043bda270eba78baee9b
 
     public function getTemplateName()
     {
-        return "WebProfilerBundle:Profiler:search.html.twig";
+        return "@WebProfiler/Profiler/search.html.twig";
     }
 
     public function isTraitable()
