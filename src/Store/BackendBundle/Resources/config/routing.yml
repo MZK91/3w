@@ -13,3 +13,11 @@ store_backend_products:
 store_backend_categories:
     resource: "@StoreBackendBundle/Resources/config/modules/category.yml"
     prefix:   /categories
+
+store_backend_cms:
+    resource: "@StoreBackendBundle/Resources/config/modules/cms.yml"
+    prefix:   /cms
+
+store_backend_supplier:
+    resource: "@StoreBackendBundle/Resources/config/modules/supplier.yml"
+    prefix:   /supplier

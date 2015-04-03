@@ -171,16 +171,63 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/categories')) {
-            // store_backend_category_list
-            if ($pathinfo === '/categories/list') {
-                return array (  '_controller' => 'Store\\BackendBundle\\Controller\\CategoryController::listAction',  '_route' => 'store_backend_category_list',);
+        if (0 === strpos($pathinfo, '/c')) {
+            if (0 === strpos($pathinfo, '/categories')) {
+                // store_backend_category_list
+                if ($pathinfo === '/categories/list') {
+                    return array (  '_controller' => 'Store\\BackendBundle\\Controller\\CategoryController::listAction',  '_route' => 'store_backend_category_list',);
+                }
+
+                // store_backend_category_view
+                if (0 === strpos($pathinfo, '/categories/view') && preg_match('#^/categories/view/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_store_backend_category_view;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'store_backend_category_view')), array (  '_controller' => 'Store\\BackendBundle\\Controller\\CategoryController::viewAction',));
+                }
+                not_store_backend_category_view:
+
             }
 
-            // store_backend_category_view
-            if (0 === strpos($pathinfo, '/categories/view') && preg_match('#^/categories/view/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'store_backend_category_view')), array (  '_controller' => 'Store\\BackendBundle\\Controller\\CategoryController::viewAction',));
+            if (0 === strpos($pathinfo, '/cms')) {
+                // store_backend_cms_list
+                if ($pathinfo === '/cms/list') {
+                    return array (  '_controller' => 'Store\\BackendBundle\\Controller\\CmsController::listAction',  '_route' => 'store_backend_cms_list',);
+                }
+
+                // store_backend_cms_view
+                if (0 === strpos($pathinfo, '/cms/view') && preg_match('#^/cms/view/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_store_backend_cms_view;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'store_backend_cms_view')), array (  '_controller' => 'Store\\BackendBundle\\Controller\\CmsController::viewAction',));
+                }
+                not_store_backend_cms_view:
+
             }
+
+        }
+
+        if (0 === strpos($pathinfo, '/supplier')) {
+            // store_backend_supplier_list
+            if ($pathinfo === '/supplier/list') {
+                return array (  '_controller' => 'Store\\BackendBundle\\Controller\\SupplierController::listAction',  '_route' => 'store_backend_supplier_list',);
+            }
+
+            // store_backend_supplier_view
+            if (0 === strpos($pathinfo, '/supplier/view') && preg_match('#^/supplier/view/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_store_backend_supplier_view;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'store_backend_supplier_view')), array (  '_controller' => 'Store\\BackendBundle\\Controller\\SupplierController::viewAction',));
+            }
+            not_store_backend_supplier_view:
 
         }
 

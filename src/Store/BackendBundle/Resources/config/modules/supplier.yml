@@ -1,0 +1,10 @@
+store_backend_supplier_list:
+    path:     /list
+    defaults: { _controller: StoreBackendBundle:Supplier:list }
+
+store_backend_supplier_view:
+    path:     /view/{id}
+    defaults: { _controller: StoreBackendBundle:Supplier:view }
+    requirements:
+       id: \d+
+       _method: GET
